@@ -23,7 +23,7 @@ public class BoardController {
     @PostMapping("/board/writepro")
     public String boardWritePro(@ModelAttribute announceboard announceBoard) {
         announceBoardService.write(announceBoard);
-        return "";
+        return "redirect:/board/list";
     }
 
     @GetMapping("/board/list")
@@ -44,5 +44,23 @@ public class BoardController {
         announceBoardService.boardDelete(id);
         return "redirect:/board/list";
     }
+    @GetMapping("/board/modify/{id}")
+    public String boardModify(@PathVariable("id") Integer id,
+                              Model model){
 
+        model.addAttribute("board", announceBoardService.boardView(id));
+
+        return "boardModify";
+    }
+    @PostMapping("/board/update/{id}")
+    public String boardUpdate(@PathVariable("id") Integer id, @ModelAttribute announceboard announceBoard){
+
+        announceboard boardTemp = announceBoardService.boardView(id);
+        boardTemp.setTitle(announceBoard.getTitle());
+        boardTemp.setContent(announceBoard.getContent());
+
+        announceBoardService.write(boardTemp);
+
+        return "redirect:/board/list";
+    }
 }
