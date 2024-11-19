@@ -17,4 +17,8 @@ public class announceboard {
     private String title;
 
     private String content;
+
+    private String filename;
+
+    private String filepath;
 }
