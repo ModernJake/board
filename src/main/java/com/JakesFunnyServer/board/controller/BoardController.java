@@ -19,11 +19,19 @@ public class BoardController {
     @Autowired
     private announceBoardService announceBoardService;
 
+    //메인페이지
+    @GetMapping("/")
+    public String mainPage(){
+        return "index";
+    }
+
+    //작성 화면
     @GetMapping("/board/write") //localhost:8080/board/write
     public String boardWriteForm(){
         return "boardwrite";
     }
 
+    //작성 프로세스
     @PostMapping("/board/writepro")
     public String boardWritePro(@ModelAttribute announceboard announceBoard, Model model,
                                 @RequestParam(name = "file") MultipartFile file) throws Exception {
@@ -36,6 +44,7 @@ public class BoardController {
         return "message";
     }
 
+    //게시판(페이징 및 검색)
     @GetMapping("/board/list")
     public String boardList(Model model, @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.DESC)Pageable pageable,
                             @RequestParam(value = "searchKeyword", required = false) String searchKeyword) {
@@ -59,6 +68,7 @@ public class BoardController {
         return "boardList";
     }
 
+    //게시글 상세 페이지
     @GetMapping("/board/view") //localhost:8080/board/view?id=1
     public String boardView(Model model, @RequestParam("id") Integer id){
 
@@ -66,11 +76,14 @@ public class BoardController {
         return "boardView";
     }
 
+    //삭제 프로세스
     @GetMapping("/board/delete")
     public String boardDelete(@RequestParam("id") Integer id) {
         announceBoardService.boardDelete(id);
         return "redirect:/board/list";
     }
+    
+    //수정 페이지(작성 화면과 비슷)
     @GetMapping("/board/modify/{id}")
     public String boardModify(@PathVariable("id") Integer id,
                               Model model){
@@ -79,6 +92,8 @@ public class BoardController {
 
         return "boardModify";
     }
+
+    //수정 프로세스
     @PostMapping("/board/update/{id}")
     public String boardUpdate(@PathVariable("id") Integer id, @ModelAttribute announceboard announceBoard,
                               @RequestParam(name = "file") MultipartFile file) throws Exception{
