@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<!-- 전체 컨테이너 -->
+<div class="container">
+  <!-- 타이틀 영역 -->
+  <header class="title">
+    <h1>타이틀 (사이트 이름)</h1>
+    <p>어도비 일러스트로 작업할 예정</p>
+  </header>
+
+  <!-- 탭 메뉴 -->
+  <nav class="tab-menu">
+    <ul>
+      <li><a href="#">공지사항</a></li>
+      <li><a href="#">건의사항</a></li>
+      <li><a href="#">추가 예정</a></li>
+    </ul>
+  </nav>
+
+  <!-- 본문 영역 -->
+  <main class="content">
+    <!-- 왼쪽: 마을 지도 -->
+    <section class="left">
+      <div class="placeholder">
+        마을 지도 (아직 어떻게 구현할지 모름)
+      </div>
+    </section>
+
+    <!-- 오른쪽: 보류 -->
+    <section class="right">
+      <div class="placeholder">
+        보류
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>
