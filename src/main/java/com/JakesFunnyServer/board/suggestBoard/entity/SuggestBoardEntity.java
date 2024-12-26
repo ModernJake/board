@@ -10,7 +10,7 @@ import lombok.Setter;
 @Table(name = "suggest_board")
 public class SuggestBoardEntity {
     @Id
-    private int id;
+    private Integer id;
     private String title;
     private String content;
 }
