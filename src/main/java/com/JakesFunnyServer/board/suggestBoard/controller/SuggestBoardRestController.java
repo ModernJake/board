@@ -9,6 +9,7 @@ import org.springframework.http.HttpRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
@@ -19,10 +20,9 @@ public class SuggestBoardRestController {
     private final SuggestBoardService suggestBoardService;
 
     @GetMapping("/list")
-    public ResponseEntity getSuggestBoardList(SuggestBoardEntity entity) {
-
+    public ResponseEntity getSuggestBoardList(String searchWord) {
         CommonResponse<Object> commonResponse = CommonResponse.builder()
-                .data(suggestBoardService.getSuggestBoardList(entity))
+                .data(suggestBoardService.getSuggestBoardList(searchWord))
                 .resultCode("OK")
                 .build();
         return ResponseEntity.ok().body(commonResponse);
