@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 // import axios from "axios";
 
 // const getResponse = async() => {
@@ -21,7 +22,6 @@ const SuggestBoard = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchWord, setSearchWord] = useState("");
-  let json = {};
   let searchQuery = "";
 
   const handleInputChange = (e) => {
@@ -37,7 +37,7 @@ const SuggestBoard = () => {
     getList();
   }
 
-  const getList = async() => {
+  const getList = async () => {
     const querystring = `?${searchQuery}`;
     const response = await fetch(`/api/board/suggest-board/list${querystring}`);
     const result = await response.json();
@@ -63,9 +63,16 @@ const SuggestBoard = () => {
           <h1>건의 게시판</h1>
         </header>
         <main>
-          <label>제목 검색 </label>
-          <input type={"text"} value={searchWord} onChange={handleInputChange} placeholder={"검색어"}/>
-          <button onClick={handleSearch}>검색</button>
+          <div className={"searchbar"}>
+            <label>제목 검색 </label>
+            <input type={"text"} value={searchWord} onChange={handleInputChange}
+                   placeholder={"검색어"}/>
+            <button onClick={handleSearch}>검색</button>
+          </div>
+          <div></div>
+          <Link to={"/suggest-board/details"}>
+            <button>등록</button>
+          </Link>
           {loading ? (<p>Loading...</p>) : (
               <table>
                 <thead>

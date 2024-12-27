@@ -21,4 +21,19 @@ public class SuggestBoardServiceImple implements SuggestBoardService {
         if(searchWord != null && searchWord != "") return suggestBoardRepository.findSuggestBoardEntitiesLikeTitle(searchWord);
         return suggestBoardRepository.findAll();
     }
+
+    @Override
+    public void insertSuggestBoard(SuggestBoardEntity entity) {
+        suggestBoardRepository.saveAndFlush(entity);
+    }
+
+    @Override
+    public void updateSuggestBoard(SuggestBoardEntity entity) {
+        suggestBoardRepository.updateSuggestBoardEntityById(entity.getId(), entity.getTitle(), entity.getContent());
+    }
+
+    @Override
+    public void deleteSuggestBoard(SuggestBoardEntity entity) {
+        suggestBoardRepository.delete(entity);
+    }
 }

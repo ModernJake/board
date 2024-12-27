@@ -10,6 +10,7 @@ import lombok.Setter;
 @Table(name = "suggest_board")
 public class SuggestBoardEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
     private String content;

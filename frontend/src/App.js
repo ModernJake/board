@@ -1,7 +1,8 @@
 import logo from './assets/images/logo.svg';
 import './assets/css/App.css';
-import SuggestBoard from "./components/SuggestBoard";
+import SuggestBoard from "./components/suggestBoard/SuggestBoard";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import SuggestBoardDetails from "./components/suggestBoard/SuggestBoardDetails";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" exact element={<h1>Home</h1>} />
           <Route path="/announce-board" element={<SuggestBoard/>} />
           <Route path="/suggest-board" element={<SuggestBoard/>} />
+          <Route path="/suggest-board/details" element={<SuggestBoardDetails/>} />
           <Route path="/about" element={<h1>About</h1>} />
         </Routes>
       </Router>
