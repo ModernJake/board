@@ -1,6 +1,6 @@
-package com.JakesFunnyServer.board.announceBoardPage.repository;
+package com.JakesFunnyServer.board.announceBoard.repository;
 
-import com.JakesFunnyServer.board.announceBoardPage.entity.AnnounceBoardEntity;
+import com.JakesFunnyServer.board.announceBoard.entity.AnnounceBoardEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

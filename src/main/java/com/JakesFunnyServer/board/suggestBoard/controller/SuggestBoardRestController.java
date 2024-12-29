@@ -35,8 +35,8 @@ public class SuggestBoardRestController {
         suggestBoardService.insertSuggestBoard(entity);
 
         CommonResponse<Object> commonResponse = CommonResponse.builder()
-            .resultCode("CREATE_OK")
-            .build();
+                .resultCode("CREATE_OK")
+                .build();
         return ResponseEntity.ok().body(commonResponse);
     }
 
@@ -45,8 +45,8 @@ public class SuggestBoardRestController {
         suggestBoardService.updateSuggestBoard(entity);
 
         CommonResponse<Object> commonResponse = CommonResponse.builder()
-            .resultCode("UPDATE_OK")
-            .build();
+                .resultCode("UPDATE_OK")
+                .build();
         return ResponseEntity.ok().body(commonResponse);
     }
 
@@ -55,8 +55,8 @@ public class SuggestBoardRestController {
         suggestBoardService.deleteSuggestBoard(entity);
 
         CommonResponse<Object> commonResponse = CommonResponse.builder()
-            .resultCode("DELETE_OK")
-            .build();
+                .resultCode("DELETE_OK")
+                .build();
         return ResponseEntity.ok().body(commonResponse);
     }
 }

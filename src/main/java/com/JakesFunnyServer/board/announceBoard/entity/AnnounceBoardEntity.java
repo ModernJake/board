@@ -1,4 +1,4 @@
-package com.JakesFunnyServer.board.announceBoardPage.entity;
+package com.JakesFunnyServer.board.announceBoard.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -41,18 +41,34 @@ h1 {
   text-align: center;
 }
 
-table {
-  text-align: center;
-  align-self: center;
-  align-content: center;
-  align-items: center;
+.boardtable {
+  display: flex;
+  justify-content: center;
+  table-layout: fixed;
+  /*align-items: center;*/
+  /*height: 100vh;*/
 }
 
-searchbar {
+.boardtable th,
+.boardtable td {
+  overflow: hidden; /* 넘치는 텍스트 숨기기 */
+  text-overflow: ellipsis; /* 말줄임(...) 처리 */
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+}
+
+table {
   text-align: center;
-  align-self: center;
-  align-content: center;
-  align-items: center;
+  border-collapse: collapse;
+  width: 90%;
+}
+
+th, td {
+  border: 1px solid;
+}
+
+.searchbar {
+  display: flex;
+  justify-content: center;
 }
 
 .layout {

@@ -1,7 +1,7 @@
-package com.JakesFunnyServer.board.announceBoardPage.controller;
+package com.JakesFunnyServer.board.announceBoard.controller;
 
-import com.JakesFunnyServer.board.announceBoardPage.entity.AnnounceBoardEntity;
-import com.JakesFunnyServer.board.announceBoardPage.service.AnnounceBoardService;
+import com.JakesFunnyServer.board.announceBoard.entity.AnnounceBoardEntity;
+import com.JakesFunnyServer.board.announceBoard.service.AnnounceBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
